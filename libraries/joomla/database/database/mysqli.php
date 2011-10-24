@@ -520,7 +520,7 @@ class JDatabaseMySQLi extends JDatabase
 		$this->errorMsg = '';
 
 		// Change the old type variable
-		$sql = preg_replace('@TYPE\s*=\s*MyISAM@i',' ENGINE=MyISAM ',$sql);
+		$sql = preg_replace('@TYPE\s*=\s*MyISAM@i','ENGINE=MyISAM',$sql);
 		
 		// Execute the query.
 		$this->cursor = mysqli_query($this->connection, $sql);
@@ -777,7 +777,7 @@ class JDatabaseMySQLi extends JDatabase
 			$query = trim($query);
 			if ($query != '') {
 				// Change the old type variable
-				$sql = preg_replace('@TYPE\s*=\s*MyISAM@i',' ENGINE=MyISAM ',$sql);
+				$sql = preg_replace('@TYPE\s*=\s*MyISAM@i','ENGINE=MyISAM',$sql);
 				
 				$this->cursor = mysqli_query($this->connection, $query);
 				if ($this->debug) {

@@ -497,6 +497,8 @@ class JDatabaseMySQL extends JDatabase
 		$this->errorMsg = '';
 
 		// Execute the query.
+		// Change the old type variable
+		$sql = preg_replace('@TYPE\s*=\s*MyISAM@i','ENGINE=MyISAM',$sql);
 		$this->cursor = mysql_query($sql, $this->connection);
 
 		// If an error occurred handle it.
@@ -750,6 +752,9 @@ class JDatabaseMySQL extends JDatabase
 		{
 			$query = trim($query);
 			if ($query != '') {
+				// Change the old type variable
+				$sql = preg_replace('@TYPE\s*=\s*MyISAM@i','ENGINE=MyISAM',$sql);
+				
 				$this->cursor = mysql_query($query, $this->connection);
 				if ($this->debug) {
 					$this->count++;
